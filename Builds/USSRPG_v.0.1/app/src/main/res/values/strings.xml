@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">USSRPG_v.0.1</string>
+    <string name="Lobby">Lobby</string>
+    <string name="Pool">Pool</string>
+    <string name="Create">Create</string>
+    <string name="Select">Select</string>
 </resources>
