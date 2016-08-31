@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         //TODOne: Lobby Button to Multi-player Lobby Activity
         toLobby = (Button) findViewById(R.id.lobbyMainButton);
-        toCreation.setOnClickListener(new View.OnClickListener() {
+        toLobby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MpLobbyActivity.class);
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         //TODOne: Pool Button
         toPool = (Button) findViewById(R.id.poolMainButton);
-        toCreation.setOnClickListener(new View.OnClickListener() {
+        toPool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DicePoolerActivity.class);
