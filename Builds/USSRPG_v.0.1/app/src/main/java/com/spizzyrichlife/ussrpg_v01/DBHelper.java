@@ -34,11 +34,11 @@ public class DBHelper {
                     COL_CP + " INTEGER " +
                     COL_LOCATION_ID +" INTEGER )";
 
-//    private static <DBHelperClassName>mInstance;
-//
-//    public static <DBHelperClassName> getInstance(Context context) {
+    private static DBHelper mInstance;
+
+//    public static DBHelper getInstance(Context context) {
 //        if (mInstance == null) {
-//            mInstance = new <DBHelperClassName> (context.getApplicationContext());
+//            mInstance = new DBHelper(context.getApplicationContext());
 //        }
 //        return mInstance;
 //    }
