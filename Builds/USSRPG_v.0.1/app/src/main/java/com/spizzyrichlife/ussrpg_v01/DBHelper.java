@@ -2,12 +2,13 @@ package com.spizzyrichlife.ussrpg_v01;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * Created by SpizzyRich on 8/30/16.
  */
 
-public class DBHelper {
+public class DBHelper extends SQLiteOpenHelper{
     //TODO: Set up Database using DB Helper how to.
 
     private static final int DATABASE_VERSION = 1;
@@ -40,8 +41,10 @@ public class DBHelper {
 
     private static DBHelper mInstance;
 
-    public DBHelper(Context applicationContext) {
+    public DBHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
 
     public static DBHelper getInstance(Context context) {
         if (mInstance == null) {
@@ -55,13 +58,13 @@ public class DBHelper {
 //        //TODO: Figure out why ^this is broken^
 //    }
 
-//    @Override      //TODO: Figure out why it hates this override
+    @Override      //TODO: Figure out why it hates this override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_PC_TABLE);
 //          ^Repeat as needed^
     }
 
-//    @Override      //TODO: Figure out why it hates this override
+    @Override      //TODO: Figure out why it hates this override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_PC);
         this.onCreate(db);
