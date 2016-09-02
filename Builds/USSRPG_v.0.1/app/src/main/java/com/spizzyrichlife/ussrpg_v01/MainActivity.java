@@ -10,12 +10,12 @@ import android.widget.Button;
 //Your work must:
 //   []   Have a theme and display data related to that theme.
 //   []   Allow the user to search by at least three different search criterias
-//   []   Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
-//   []   Gather data for the search results from the database
+//   []     Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
+//   []     Gather data for the search results from the database
 //   []   Allow the user to add rows to a database, which they can view at any time
 //   []   Incorporate Object Oriented principles into your app
 //   []   Contain code comments, explaining the functionality behind sections of code
-//   []   Include at least 4 user stories in the readme.md
+//   [X]  Include at least 4 user stories in the readme.md
 //   []   Include espresso tests for your app
 //   []   Ensure that you add a sufficient number of tests for the features of each screen of your app
 //Bonus:
