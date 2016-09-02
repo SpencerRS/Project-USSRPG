@@ -39,6 +39,9 @@ Limit what is editable by the players
 Send out alerts whenever the GM makes a change (with sfx?)
 Utilize voice recognition for data entry?
 
+###ERD
+![ERD](Images/USSRPG_ERD.png)
+
 ##User Stories:
 
 As a USER, I want to store multiple characters so that I don’t have to recreate them each time.
@@ -50,3 +53,12 @@ As a USER, I want to view my character’s atributes so that I can easily see wh
 As a USER, I want to be able to view my character’s decks/cards so that I can decide my strategy
 
 As a USER, I want to be able to draw and maintan a hand of cards from my decks so that I don’t need to make and manage physical cards.
+
+##Prototypes
+![](Images/Prototype/Map.JPG)
+![](Images/Prototype/Main.JPG)
+![](Images/Prototype/Character_Select.JPG)
+![](Images/Prototype/Character_View.JPG)
+![](Images/Prototype/Deck.JPG)
+![](Images/Prototype/Card_View.JPG)
+![](Images/Prototype/Dice_Pool.JPG)
