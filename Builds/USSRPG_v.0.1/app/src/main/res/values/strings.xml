@@ -4,4 +4,6 @@
     <string name="Pool">Pool</string>
     <string name="Create">Create</string>
     <string name="Select">Select</string>
+    <string name="add_attribute">Add Attribute</string>
+    <string name="search">Search</string>
 </resources>
