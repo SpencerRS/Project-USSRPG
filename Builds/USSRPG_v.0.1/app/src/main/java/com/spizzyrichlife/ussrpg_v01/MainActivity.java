@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 //Your work must:
 //   []   Have a theme and display data related to that theme.
-//   []   Allow the user to search by at least three different search criterias
+//   []   Allow the user to search by at least three different search criteria
 //   []     Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
+          //TODO: Create new activity for search to land in with Launch Mode singletop
 //   []     Gather data for the search results from the database
 //   []   Allow the user to add rows to a database, which they can view at any time
 //   []   Incorporate Object Oriented principles into your app
@@ -20,6 +24,7 @@ import android.widget.Button;
 //   []   Ensure that you add a sufficient number of tests for the features of each screen of your app
 //Bonus:
 //   []   Use relationships between tables (highly recommended)
+        //TODO: Create attributes table linked to PC table.
 //   []   Incorporate Square's Picasso photo library
 //   []   Incorporate Material Design principles into your app
 //   []   Add more complexity to the user's searches (possibly allowing more than one search criteria at a time)
@@ -79,5 +84,37 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    //TODO: Copy Both of these to each activity once it is complete.
+    //Inflate options menu for this activity.
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+    //Interperate menu item clicks.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add:
+//              TODO: Make this popup a fragment to add Attributes to the currently selected character
+                return true;
+
+            case R.id.action_edit:
+//              TODO: Make this switch to an activity to edit the attributes of the currently selected character
+                return true;
+
+            case R.id.action_search:
+//              TODO: Make this run a search in a popup and redirect to a search activity
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

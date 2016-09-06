@@ -9,7 +9,7 @@ Characters have 4 key stats, Health Points (HP), Stamina/Energy Points (SP/EP), 
 Each card in the Player’s deck has 2 values, Suit (Y axis) and Value (X axis). The lower of the two represents the card’s Yellow value, while the difference represents the Green value.
 
 
-Players activate cards from their hands, which they draw from 1 of 3 decks (Feats/Abilities [Yellow], Techniques/Equipment [ Red], or Skills [Green]). Players upkeep a constant number of cards in their hand at the end of their turn.
+Players activate cards from their hands, which they draw from 1 of 3 stacks (Feats/Abilities [Yellow], Techniques/Equipment [ Red], or Skills [Green]). Players upkeep a constant number of cards in their hand at the end of their turn.
 
 
 ###Basics:
