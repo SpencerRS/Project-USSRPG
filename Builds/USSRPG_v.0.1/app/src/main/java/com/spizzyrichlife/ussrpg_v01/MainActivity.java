@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DBHelper.getInstance(this);
+        DBHelper.getInstance(this).getWritableDatabase();
     }
     //TODO: Copy Both of these to each activity once it is complete.
     //Inflate options menu for this activity.

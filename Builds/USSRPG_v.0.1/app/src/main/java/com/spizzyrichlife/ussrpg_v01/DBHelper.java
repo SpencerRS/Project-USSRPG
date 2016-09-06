@@ -37,11 +37,11 @@ public class DBHelper extends SQLiteOpenHelper{
             "CREATE TABLE " + TABLE_NAME_PC +
                     " (" +
                     COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                    COL_NAME + " TEXT, " +
+                    COL_NAME + " TEXT, " +
                     COL_XP + " INTEGER, " +
                     COL_HP + " INTEGER, " +
                     COL_SP + " INTEGER, " +
-                    COL_CP + " INTEGER, " +
+                    COL_CP + " INTEGER " +
 //                   COL_LOCATION_ID +" INTEGER )";
                     ")";
 
