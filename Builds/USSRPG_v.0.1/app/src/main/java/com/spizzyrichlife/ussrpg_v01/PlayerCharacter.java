@@ -15,12 +15,31 @@ public class PlayerCharacter {
 //    int location_id;
 
 // TODO: update with player_id and location_id when they are implemented
-    public PlayerCharacter(int _id, String name, int xp, int hp, int sp, int cp) {
-        this._id = _id;
+    public PlayerCharacter(String name, int xp, int hp, int sp, int cp) {
         this.name = name;
         this.xp = xp;
         this.hp = hp;
         this.sp = sp;
         this.cp = cp;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getSp() {
+        return sp;
+    }
+
+    public int getCp() {
+        return cp;
     }
 }

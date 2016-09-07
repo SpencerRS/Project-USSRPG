@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CharacterSelectionActivity.class);
+                DBHelper.getInstance(MainActivity.this).seedPCTable();
                 startActivity(intent);
             }
         });
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_add:
 //              TODO: Make this popup a fragment to add Attributes to the currently selected character
+
                 return true;
 
             case R.id.action_edit:

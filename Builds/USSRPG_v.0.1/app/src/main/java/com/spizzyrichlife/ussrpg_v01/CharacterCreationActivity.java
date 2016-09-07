@@ -1,13 +1,30 @@
 package com.spizzyrichlife.ussrpg_v01;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class CharacterCreationActivity extends AppCompatActivity {
-
+    EditText charName;
+    EditText charStartXP;
+    Button createCharButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_creation);
+        charName = (EditText) findViewById(R.id.nameEditText);
+        charStartXP = (EditText) findViewById(R.id.xpEditText);
+        createCharButton = (Button) findViewById(R.id.charCreateButton);
+        createCharButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String name = charName.getText().toString();
+                int xp = Integer.getInteger(charStartXP.getText().toString());
+               PlayerCharacter newPC = new PlayerCharacter(name, xp, 10,10,1);
+                DBHelper.getInstance(CharacterCreationActivity.this).createPC(newPC);
+            }
+        });
     }
 }

@@ -15,10 +15,28 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:titleTextColor="#ffffff"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    <TextView
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/my_toolbar"-->
+        <!--android:text="Character Creation Screen"/>-->
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Character Name"
+        android:layout_below="@+id/my_toolbar"/>
+    <EditText
+        android:id="@+id/xpEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Starting Experience Points"
+        android:layout_below="@+id/nameEditText"/>
+    <Button
+        android:id="@+id/charCreateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/my_toolbar"
-        android:text="Character Creation Screen"/>
+        android:text="Create Character"
+        android:layout_below="@id/xpEditText"/>
 
 </RelativeLayout>
