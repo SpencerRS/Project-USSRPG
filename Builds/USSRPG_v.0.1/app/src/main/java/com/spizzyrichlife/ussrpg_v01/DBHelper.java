@@ -30,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //    public static final String COL_<COLUMN_NAME> = "<Column_Name>"
     //                                   ^Repeat as needed^
 // Get Character preview (Name, HP, SP, XP)
-    public static final String[] CHARACTER_PREVIEW_COLUMN_SELECTION = {COL_ID, COL_NAME, COL_HP, COL_SP, COL_XP};
+    public static final String[] CHARACTER_PREVIEW_COLUMN_SELECTION = {COL_ID, COL_NAME, COL_XP, COL_HP, COL_SP, COL_CP};
 
     //Create Player Character Table
     private static final String CREATE_PC_TABLE =
