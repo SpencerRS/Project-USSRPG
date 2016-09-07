@@ -20,15 +20,15 @@ public class CharacterSelectionActivity extends AppCompatActivity {
 
     Cursor cursor = DBHelper.getInstance(CharacterSelectionActivity.this).getCharacterPreviews();
 
-    CursorAdapter cursorAdapter = new CursorAdapter(CharacterSelectionActivity.this,cursor,0) {
+    CursorAdapter cursorAdapter = new CursorAdapter(CharacterSelectionActivity.this, cursor, 0) {
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
-            return LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1,parent,false);
+            return LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, parent, false);
         }
 
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
-            TextView textView = (TextView)view.findViewById(android.R.id.text1);
+            TextView textView = (TextView) view.findViewById(android.R.id.text1);
 
             textView.setText(cursor.getString(cursor.getColumnIndex(DBHelper.COL_NAME)));
         }

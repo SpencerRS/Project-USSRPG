@@ -19,7 +19,8 @@
         <activity android:name=".MpLobbyActivity" />
         <activity android:name=".DicePoolerActivity" />
         <activity android:name=".CharacterCreationActivity" />
-        <activity android:name=".CharacterSelectionActivity"></activity>
+        <activity android:name=".CharacterSelectionActivity" />
+        <activity android:name=".SearchActivity"></activity>
     </application>
 
 </manifest>

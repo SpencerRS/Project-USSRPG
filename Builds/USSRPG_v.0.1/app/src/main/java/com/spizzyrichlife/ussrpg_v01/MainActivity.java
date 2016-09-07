@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DBHelper.getInstance(this).getWritableDatabase();
+        DBHelper.getInstance(this).seedPCTable();
+
     }
     //TODO: Copy Both of these to each activity once it is complete.
     //Inflate options menu for this activity.
@@ -109,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_search:
-//              TODO: Make this run a search in a popup and redirect to a search activity
+               Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
                 return true;
 
             default:
