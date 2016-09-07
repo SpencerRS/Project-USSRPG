@@ -23,4 +23,36 @@ public class CharacterAttributes {
         this.synonyms = synonyms;
         this.stored_blues = stored_blues;
     }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public int getCharacter_id() {
+        return character_id;
+    }
+
+    public String getStack() {
+        return stack;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getSynonyms() {
+        return synonyms;
+    }
+
+    public int getStored_blues() {
+        return stored_blues;
+    }
 }
