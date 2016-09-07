@@ -18,7 +18,7 @@ import android.widget.Button;
 //   []     Gather data for the search results from the database
 //   [X]   Allow the user to add rows to a database, which they can view at any time
 //   [X]   Incorporate Object Oriented principles into your app
-//   [V]   Contain code comments, explaining the functionality behind sections of code
+//   [X]   Contain code comments, explaining the functionality behind sections of code
 //   [X]  Include at least 4 user stories in the readme.md
 //   [V]   Include espresso tests for your app
 //   []   Ensure that you add a sufficient number of tests for the features of each screen of your app
