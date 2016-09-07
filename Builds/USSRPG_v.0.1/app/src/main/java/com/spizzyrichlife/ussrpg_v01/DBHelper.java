@@ -141,6 +141,8 @@ public class DBHelper extends SQLiteOpenHelper{
         return cursor;
     }
 
+
+
 //    TODO: Add searches
 //    HOW TO Read from the database
 //    public Cursor getExampleList() {
