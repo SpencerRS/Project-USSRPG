@@ -20,7 +20,7 @@ import android.widget.Button;
 //   [X]   Incorporate Object Oriented principles into your app
 //   [X]   Contain code comments, explaining the functionality behind sections of code
 //   [X]  Include at least 4 user stories in the readme.md
-//   []   Include espresso tests for your app
+//   [V]   Include espresso tests for your app
 //   []   Ensure that you add a sufficient number of tests for the features of each screen of your app
 //Bonus:
 //   []   Use relationships between tables (highly recommended)
