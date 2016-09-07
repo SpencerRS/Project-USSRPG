@@ -77,8 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    //TODO: Transition to object-accepting format
-//    public void createPC (PlayerCharacter newPC){
+    //TODOne: Transition to object-accepting format
     public void createPC(PlayerCharacter newPC) {
         // Get a reference to the database
         SQLiteDatabase db = getWritableDatabase();
@@ -91,7 +90,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COL_SP, newPC.getSp());
         values.put(COL_CP, newPC.getCp());
 
-        // Insert the row into the games table
+        // Insert the row into the table
         db.insert(TABLE_NAME_PC, null, values);
     }
 
@@ -123,20 +122,20 @@ public class DBHelper extends SQLiteOpenHelper {
 //    }
 
     // Adds an example character to PC table on create if there are none.
-    public void seedPCTable() {
-        //TODO: Add if statement to test if there is already data in the table
-        if (getCharacterPreviews() == null) {
-            SQLiteDatabase db = getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put(COL_NAME, "Melkor");
-            values.put(COL_XP, 27);
-            values.put(COL_HP, 10);
-            values.put(COL_SP, 10);
-            values.put(COL_CP, 1);
-            db.insert(TABLE_NAME_PC, null, values);
-        }
-    }
+//    public void seedPCTable() {
+//        if (getCharacterPreviews() == null) {
+//            SQLiteDatabase db = getWritableDatabase();
+//            ContentValues values = new ContentValues();
+//            values.put(COL_NAME, "Melkor");
+//            values.put(COL_XP, 27);
+//            values.put(COL_HP, 10);
+//            values.put(COL_SP, 10);
+//            values.put(COL_CP, 1);
+//            db.insert(TABLE_NAME_PC, null, values);
+//        }
+//    }
 
+//Gets character previews for PC list view.
     public Cursor getCharacterPreviews() {
         SQLiteDatabase db = this.getReadableDatabase();
 //

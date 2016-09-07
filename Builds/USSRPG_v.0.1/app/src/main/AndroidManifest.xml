@@ -20,7 +20,9 @@
         <activity android:name=".DicePoolerActivity" />
         <activity android:name=".CharacterCreationActivity" />
         <activity android:name=".CharacterSelectionActivity" />
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SearchActivity"
+            android:launchMode="singleTop">
+        </activity>
     </application>
 
 </manifest>

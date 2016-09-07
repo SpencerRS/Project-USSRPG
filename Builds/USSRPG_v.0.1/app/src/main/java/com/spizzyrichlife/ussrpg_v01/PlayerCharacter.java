@@ -3,6 +3,8 @@ package com.spizzyrichlife.ussrpg_v01;
 /**
  * Created by SpizzyRich on 9/6/16.
  */
+
+//This is where the Player Character object is defined.
 public class PlayerCharacter {
     int _id;
     String name;

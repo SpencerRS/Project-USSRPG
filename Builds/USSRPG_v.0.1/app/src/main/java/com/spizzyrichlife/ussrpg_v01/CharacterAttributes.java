@@ -3,6 +3,8 @@ package com.spizzyrichlife.ussrpg_v01;
 /**
  * Created by SpizzyRich on 9/6/16.
  */
+
+//This class defines the Attribute object.
 public class CharacterAttributes {
     int _id;
     int character_id; // Which character the attribute belongs to (TODO: decide if this should be the DECK_ID instead...)

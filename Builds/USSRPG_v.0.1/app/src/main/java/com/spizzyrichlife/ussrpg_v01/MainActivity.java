@@ -16,6 +16,7 @@ import android.widget.Button;
 //   []     Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
           //TODO: Create new activity for search to land in with Launch Mode singletop
 //   []     Gather data for the search results from the database
+          //TODO: Add U and D functionality from CRUD
 //   [X]   Allow the user to add rows to a database, which they can view at any time
 //   [X]   Incorporate Object Oriented principles into your app
 //   [X]   Contain code comments, explaining the functionality behind sections of code
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //TODOne: Creation Button link to Characer Creation Activity
+        //TODOne: Creation Button link to Character Creation Activity
         toCreation = (Button) findViewById(R.id.createMainButton);
         toCreation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CharacterSelectionActivity.class);
-                DBHelper.getInstance(MainActivity.this).seedPCTable();
+                DBHelper.getInstance(MainActivity.this);
                 startActivity(intent);
             }
         });
-
-        DBHelper.getInstance(this).seedPCTable();
+        //Get first instance on create.
+        DBHelper.getInstance(this);
 
     }
     //TODO: Copy Both of these to each activity once it is complete.
@@ -117,8 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we get here, then the user's action wasn't recognized.
                 return super.onOptionsItemSelected(item);
 
         }
