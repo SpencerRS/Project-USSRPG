@@ -21,7 +21,8 @@ public class CharacterCreationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 String name = charName.getText().toString();
-                int xp = Integer.getInteger(charStartXP.getText().toString());
+                //TODO: error check to see if string is an int.
+                int xp = Integer.parseInt(charStartXP.getText().toString());
                PlayerCharacter newPC = new PlayerCharacter(name, xp, 10,10,1);
                 DBHelper.getInstance(CharacterCreationActivity.this).createPC(newPC);
             }
