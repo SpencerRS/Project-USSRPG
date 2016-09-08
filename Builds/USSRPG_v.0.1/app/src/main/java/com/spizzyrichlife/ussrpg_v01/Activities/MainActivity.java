@@ -15,10 +15,9 @@ import com.spizzyrichlife.ussrpg_v01.R;
 
 //Your work must:
 //   [X]   Have a theme and display data related to that theme.
-//   []   Allow the user to search by at least three different search criteria
-//   []     Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
-          //TODO: Create new activity for search to land in with Launch Mode singletop
-//   []     Gather data for the search results from the database
+//   [X]   Allow the user to search by at least three different search criteria
+//   [X]     Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
+//   [X]     Gather data for the search results from the database
           //TODO: Add U and D functionality from CRUD
 //   [X]   Allow the user to add rows to a database, which they can view at any time
 //   [X]   Incorporate Object Oriented principles into your app
