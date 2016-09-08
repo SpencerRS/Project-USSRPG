@@ -1,10 +1,14 @@
-package com.spizzyrichlife.ussrpg_v01;
+package com.spizzyrichlife.ussrpg_v01.Activities;
 
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
+import com.spizzyrichlife.ussrpg_v01.DBHelper;
+import com.spizzyrichlife.ussrpg_v01.R;
+
 //This is where players view all the PCs and select their active PC TODO: add ability so select active character.
 public class CharacterSelectionActivity extends AppCompatActivity {
     ListView listView;

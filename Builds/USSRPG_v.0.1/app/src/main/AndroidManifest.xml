@@ -9,18 +9,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MpLobbyActivity" />
-        <activity android:name=".DicePoolerActivity" />
-        <activity android:name=".CharacterCreationActivity" />
-        <activity android:name=".CharacterSelectionActivity" />
-        <activity android:name=".SearchActivity"
+        <activity android:name=".Activities.MpLobbyActivity" />
+        <activity android:name=".Activities.DicePoolerActivity" />
+        <activity android:name=".Activities.CharacterCreationActivity" />
+        <activity android:name=".Activities.CharacterSelectionActivity" />
+        <activity android:name=".Activities.SearchActivity"
             android:launchMode="singleTop">
         </activity>
     </application>
