@@ -5,6 +5,7 @@ package com.spizzyrichlife.ussrpg_v01;
  */
 
 //This is where the Player Character object is defined.
+    //TODO: Add methods to this class to help do shiz as to/with the character
 public class PlayerCharacter {
     int _id;
     String name;
