@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.spizzyrichlife.ussrpg_v01.MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -15,10 +16,34 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:titleTextColor="#ffffff"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    <TextView
-        android:layout_width="wrap_content"
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/my_toolbar"-->
+    <!--android:text="Search Screen"/>-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/search_box"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/my_toolbar"
-        android:text="Search Screen"/>
+        android:layout_weight="3"
+        android:hint="Enter Search" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/search_again_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Search" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/search_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_box"></ListView>
+
+</LinearLayout>

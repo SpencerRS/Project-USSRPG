@@ -95,7 +95,6 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //TODO: Fix this getter
-
 //    public PlayerCharacter getPC(int id) {
 //        // Get a reference to the database
 //        SQLiteDatabase db = getReadableDatabase();
@@ -121,20 +120,6 @@ public class DBHelper extends SQLiteOpenHelper {
 //        return new PlayerCharacter(id, name, xp, hp, sp, cp);
 //    }
 
-    // Adds an example character to PC table on create if there are none.
-//    public void seedPCTable() {
-//        if (getCharacterPreviews() == null) {
-//            SQLiteDatabase db = getWritableDatabase();
-//            ContentValues values = new ContentValues();
-//            values.put(COL_NAME, "Melkor");
-//            values.put(COL_XP, 27);
-//            values.put(COL_HP, 10);
-//            values.put(COL_SP, 10);
-//            values.put(COL_CP, 1);
-//            db.insert(TABLE_NAME_PC, null, values);
-//        }
-//    }
-
 //Gets character previews for PC list view.
     public Cursor getCharacterPreviews() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -150,7 +135,25 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+//    HOW TO: Search specific info
+    public String getSearchResults(String search) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        Cursor cursor = db.query(TABLE_NAME_PC,
+                new String[]{COL_NAME},
+                COL_ID + " = ?",
+                new String[]{search},
+                null,
+                null,
+                null,
+                null);
+
+        if (cursor.moveToFirst()) {
+            return cursor.getString(cursor.getColumnIndex(COL_NAME));
+        } else {
+            return "No Results Found";
+        }
+    }
 
 //    TODO: Add searches
 //    HOW TO Read from the database
@@ -190,3 +193,17 @@ public class DBHelper extends SQLiteOpenHelper {
 //    }
 
 }
+
+// Adds an example character to PC table on create if there are none.
+//    public void seedPCTable() {
+//        if (getCharacterPreviews() == null) {
+//            SQLiteDatabase db = getWritableDatabase();
+//            ContentValues values = new ContentValues();
+//            values.put(COL_NAME, "Melkor");
+//            values.put(COL_XP, 27);
+//            values.put(COL_HP, 10);
+//            values.put(COL_SP, 10);
+//            values.put(COL_CP, 1);
+//            db.insert(TABLE_NAME_PC, null, values);
+//        }
+//    }

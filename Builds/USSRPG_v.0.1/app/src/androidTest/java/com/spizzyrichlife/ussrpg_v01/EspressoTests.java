@@ -4,6 +4,9 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.spizzyrichlife.ussrpg_v01.Activities.CharacterCreationActivity;
+import com.spizzyrichlife.ussrpg_v01.Activities.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
