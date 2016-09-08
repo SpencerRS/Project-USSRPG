@@ -2,6 +2,7 @@ package com.spizzyrichlife.ussrpg_v01.Activities;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -52,5 +54,19 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         playerCharCursorAdapter = new SimpleCursorAdapter(getBaseContext(), R.layout.pc_lv_item_layout, cursor, fromNames, toViews, 0);
         ListView pcList = (ListView) findViewById(R.id.pcList);
         pcList.setAdapter(playerCharCursorAdapter);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            Cursor cursor = DBHelper.getInstance(this).getSearchResults(query);
+//            DatabaseUtils.dumpCursor(cursor);
+            ((CursorAdapter) listView.getAdapter()).changeCursor(cursor);
+        }
     }
 }

@@ -120,7 +120,7 @@ public class DBHelper extends SQLiteOpenHelper {
 //        return new PlayerCharacter(id, name, xp, hp, sp, cp);
 //    }
 
-//Gets character previews for PC list view.
+    //Gets character previews for PC list view.
     public Cursor getCharacterPreviews() {
         SQLiteDatabase db = this.getReadableDatabase();
 //
@@ -135,64 +135,24 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-//    HOW TO: Search specific info
-    public String getSearchResults(String search) {
+    //    HOW TO: Search specific info
+    public Cursor getSearchResults(String search) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME_PC,
-                new String[]{COL_NAME},
-                COL_ID + " = ?",
-                new String[]{search},
+                CHARACTER_PREVIEW_COLUMN_SELECTION,
+                COL_NAME + " LIKE ? OR " + COL_XP + " LIKE ?",
+                new String[]{"%" + search + "%", "%" + search + "%"},
                 null,
                 null,
                 null,
                 null);
 
-        if (cursor.moveToFirst()) {
-            return cursor.getString(cursor.getColumnIndex(COL_NAME));
-        } else {
-            return "No Results Found";
-        }
+        return cursor;
+
     }
-
-//    TODO: Add searches
-//    HOW TO Read from the database
-//    public Cursor getExampleList() {
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        Cursor cursor = db.query(TABLE_NAME, // a. table
-//                COLUMN_SELECTION, // b. column names
-//                null, // c. selections
-//                null, // d. selections args
-//                null, // e. group by
-//                null, // f. having
-//                null, // g. order by
-//                null); // h. limit
-//        return cursor;
-//    }
-
-//    HOW TO: Search specific info
-//    public String getDescriptionById(int id) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        Cursor cursor = db.query(TABLE_NAME,
-//                new String[]{COL_ < COLUMN_NAME >},
-//                COL_ID + " = ?",
-//                new String[]{String.valueOf(id)},
-//                null,
-//                null,
-//                null,
-//                null);
-//
-//        if (cursor.moveToFirst()) {
-//            return cursor.getString(cursor.getColumnIndex(COL_ < COLUMN_NAME >));
-//        } else {
-//            return "No Description Found";
-//        }
-//    }
-
 }
+
 
 // Adds an example character to PC table on create if there are none.
 //    public void seedPCTable() {

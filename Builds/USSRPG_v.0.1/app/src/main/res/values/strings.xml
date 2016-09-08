@@ -6,4 +6,5 @@
     <string name="Select">Select</string>
     <string name="add_attribute">Add Attribute</string>
     <string name="search">Search</string>
+    <string name="search_hint">Search by Name or XP</string>
 </resources>
