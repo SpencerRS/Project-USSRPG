@@ -77,8 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    //TODO: Transition to object-accepting format
-//    public void createPC (PlayerCharacter newPC){
+    //TODOne: Transition to object-accepting format
     public void createPC(PlayerCharacter newPC) {
         // Get a reference to the database
         SQLiteDatabase db = getWritableDatabase();
@@ -91,12 +90,11 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COL_SP, newPC.getSp());
         values.put(COL_CP, newPC.getCp());
 
-        // Insert the row into the games table
+        // Insert the row into the table
         db.insert(TABLE_NAME_PC, null, values);
     }
 
     //TODO: Fix this getter
-
 //    public PlayerCharacter getPC(int id) {
 //        // Get a reference to the database
 //        SQLiteDatabase db = getReadableDatabase();
@@ -122,21 +120,7 @@ public class DBHelper extends SQLiteOpenHelper {
 //        return new PlayerCharacter(id, name, xp, hp, sp, cp);
 //    }
 
-    // Adds an example character to PC table on create if there are none.
-    public void seedPCTable() {
-        //TODO: Add if statement to test if there is already data in the table
-        if (getCharacterPreviews() == null) {
-            SQLiteDatabase db = getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put(COL_NAME, "Melkor");
-            values.put(COL_XP, 27);
-            values.put(COL_HP, 10);
-            values.put(COL_SP, 10);
-            values.put(COL_CP, 1);
-            db.insert(TABLE_NAME_PC, null, values);
-        }
-    }
-
+    //Gets character previews for PC list view.
     public Cursor getCharacterPreviews() {
         SQLiteDatabase db = this.getReadableDatabase();
 //
@@ -151,43 +135,35 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //    HOW TO: Search specific info
+    public Cursor getSearchResults(String search) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME_PC,
+                CHARACTER_PREVIEW_COLUMN_SELECTION,
+                COL_NAME + " LIKE ? OR " + COL_XP + " LIKE ?",
+                new String[]{"%" + search + "%", "%" + search + "%"},
+                null,
+                null,
+                null,
+                null);
+
+        return cursor;
+
+    }
+}
 
 
-//    TODO: Add searches
-//    HOW TO Read from the database
-//    public Cursor getExampleList() {
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        Cursor cursor = db.query(TABLE_NAME, // a. table
-//                COLUMN_SELECTION, // b. column names
-//                null, // c. selections
-//                null, // d. selections args
-//                null, // e. group by
-//                null, // f. having
-//                null, // g. order by
-//                null); // h. limit
-//        return cursor;
-//    }
-
-//    HOW TO: Search specific info
-//    public String getDescriptionById(int id) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        Cursor cursor = db.query(TABLE_NAME,
-//                new String[]{COL_ < COLUMN_NAME >},
-//                COL_ID + " = ?",
-//                new String[]{String.valueOf(id)},
-//                null,
-//                null,
-//                null,
-//                null);
-//
-//        if (cursor.moveToFirst()) {
-//            return cursor.getString(cursor.getColumnIndex(COL_ < COLUMN_NAME >));
-//        } else {
-//            return "No Description Found";
+// Adds an example character to PC table on create if there are none.
+//    public void seedPCTable() {
+//        if (getCharacterPreviews() == null) {
+//            SQLiteDatabase db = getWritableDatabase();
+//            ContentValues values = new ContentValues();
+//            values.put(COL_NAME, "Melkor");
+//            values.put(COL_XP, 27);
+//            values.put(COL_HP, 10);
+//            values.put(COL_SP, 10);
+//            values.put(COL_CP, 1);
+//            db.insert(TABLE_NAME_PC, null, values);
 //        }
 //    }
-
-}

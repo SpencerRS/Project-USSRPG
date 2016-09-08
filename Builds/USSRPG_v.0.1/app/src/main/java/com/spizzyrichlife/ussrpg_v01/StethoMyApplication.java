@@ -7,6 +7,7 @@ import com.facebook.stetho.Stetho;
 /**
  * Created by SpizzyRich on 9/6/16.
  */
+//This is where stetho gets its rules from.
 public class StethoMyApplication extends Application {
     @Override
     public void onCreate() {
