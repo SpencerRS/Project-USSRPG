@@ -94,31 +94,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert(TABLE_NAME_PC, null, values);
     }
 
-    //TODO: Fix this getter
-//    public PlayerCharacter getPC(int id) {
-//        // Get a reference to the database
-//        SQLiteDatabase db = getReadableDatabase();
-//
-//        // Define a selection, which defines the WHERE clause of the query (but not the values for it)
-//        String selection = "_id = ?";
-//
-//        // Define the selection values. The ?'s in the selection
-//        String[] selectionArgs = new String[]{String.valueOf(id)};
-//
-//        // Make the query, getting the cursor object
-//        Cursor cursor = db.query(TABLE_NAME_PC, CHARACTER_PREVIEW_COLUMN_SELECTION, selection, selectionArgs, null, null, null, null);
-//
-//        // With the cursor, create a new game object and return it
-//        cursor.moveToFirst();
-//
-//        String name = cursor.getString(cursor.getColumnIndex(COL_NAME));
-//        int xp = cursor.getInt(cursor.getColumnIndex(COL_XP));
-//        int hp = cursor.getInt(cursor.getColumnIndex(COL_HP));
-//        int sp = cursor.getInt(cursor.getColumnIndex(COL_SP));
-//        int cp = cursor.getInt(cursor.getColumnIndex(COL_CP));
-//
-//        return new PlayerCharacter(id, name, xp, hp, sp, cp);
-//    }
 
     //Gets character previews for PC list view.
     public Cursor getCharacterPreviews() {
@@ -151,8 +126,54 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    //Grabs a character by its _id and returns it as a Player Character Object.
+    public PlayerCharacter getActiveCharacter(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME_PC,
+                CHARACTER_PREVIEW_COLUMN_SELECTION,
+                COL_ID + " =?",
+                new String[] {String.valueOf(id)},
+                null,
+                null,
+                null,
+                null);
+        //TODO: Check that this is pulling the correct info successfully
+        PlayerCharacter activeCharacter = new PlayerCharacter(
+                cursor.getString(cursor.getColumnIndex(COL_NAME)),
+                cursor.getInt(cursor.getColumnIndex(COL_XP)),
+                cursor.getInt(cursor.getColumnIndex(COL_HP)),
+                cursor.getInt(cursor.getColumnIndex(COL_SP)),
+                cursor.getInt(cursor.getColumnIndex(COL_CP)));
+        return activeCharacter;
+    }
 }
 
+//TODO: Fix this getter
+//    public PlayerCharacter getPC(int id) {
+//        // Get a reference to the database
+//        SQLiteDatabase db = getReadableDatabase();
+//
+//        // Define a selection, which defines the WHERE clause of the query (but not the values for it)
+//        String selection = "_id = ?";
+//
+//        // Define the selection values. The ?'s in the selection
+//        String[] selectionArgs = new String[]{String.valueOf(id)};
+//
+//        // Make the query, getting the cursor object
+//        Cursor cursor = db.query(TABLE_NAME_PC, CHARACTER_PREVIEW_COLUMN_SELECTION, selection, selectionArgs, null, null, null, null);
+//
+//        // With the cursor, create a new game object and return it
+//        cursor.moveToFirst();
+//
+//        String name = cursor.getString(cursor.getColumnIndex(COL_NAME));
+//        int xp = cursor.getInt(cursor.getColumnIndex(COL_XP));
+//        int hp = cursor.getInt(cursor.getColumnIndex(COL_HP));
+//        int sp = cursor.getInt(cursor.getColumnIndex(COL_SP));
+//        int cp = cursor.getInt(cursor.getColumnIndex(COL_CP));
+//
+//        return new PlayerCharacter(id, name, xp, hp, sp, cp);
+//    }
 
 // Adds an example character to PC table on create if there are none.
 //    public void seedPCTable() {
