@@ -116,8 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_search:
-               Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                startActivity(intent);
+               //TODO: Make this only available during character selection
                 return true;
 
             default:
