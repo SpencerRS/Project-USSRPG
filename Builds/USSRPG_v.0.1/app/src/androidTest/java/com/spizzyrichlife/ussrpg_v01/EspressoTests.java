@@ -1,7 +1,6 @@
 package com.spizzyrichlife.ussrpg_v01;
 
 
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
@@ -56,7 +55,7 @@ public class EspressoTests {
 
     // Should switch to character creation activity
     public void testMainCharCreateButton() throws Exception {
-        onView(withId(R.id.createMainButton))
+        onView(withId(R.id.action_create))
                 .perform(click());
         intended(hasComponent(CharacterCreationActivity.class.getName()));
     }
