@@ -37,7 +37,7 @@ import com.spizzyrichlife.ussrpg_v01.R;
 public class MainActivity extends AppCompatActivity {
     Button toLobby;
     Button toPool;
-    Button toCreation;
+//    Button toCreation;
     Button toSelection;
 
     @Override
