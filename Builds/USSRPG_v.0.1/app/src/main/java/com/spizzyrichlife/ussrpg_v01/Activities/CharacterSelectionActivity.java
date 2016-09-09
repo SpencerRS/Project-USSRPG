@@ -50,7 +50,31 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         Cursor cursor = DBHelper.getInstance(CharacterSelectionActivity.this).getCharacterPreviews();
         String[] fromNames = new String[]{DBHelper.COL_NAME, DBHelper.COL_XP, DBHelper.COL_HP, DBHelper.COL_SP, DBHelper.COL_CP};
         int[] toViews = new int[]{R.id.pc_lv_character_name, R.id.pc_lv_character_xp, R.id.pc_lv_character_hp, R.id.pc_lv_character_sp, R.id.pc_lv_character_cp};
-        SimpleCursorAdapter playerCharCursorAdapter;
+        SimpleCursorAdapter playerCharCursorAdapter;    //TODO: Fix this getter
+//    public PlayerCharacter getPC(int id) {
+//        // Get a reference to the database
+//        SQLiteDatabase db = getReadableDatabase();
+//
+//        // Define a selection, which defines the WHERE clause of the query (but not the values for it)
+//        String selection = "_id = ?";
+//
+//        // Define the selection values. The ?'s in the selection
+//        String[] selectionArgs = new String[]{String.valueOf(id)};
+//
+//        // Make the query, getting the cursor object
+//        Cursor cursor = db.query(TABLE_NAME_PC, CHARACTER_PREVIEW_COLUMN_SELECTION, selection, selectionArgs, null, null, null, null);
+//
+//        // With the cursor, create a new game object and return it
+//        cursor.moveToFirst();
+//
+//        String name = cursor.getString(cursor.getColumnIndex(COL_NAME));
+//        int xp = cursor.getInt(cursor.getColumnIndex(COL_XP));
+//        int hp = cursor.getInt(cursor.getColumnIndex(COL_HP));
+//        int sp = cursor.getInt(cursor.getColumnIndex(COL_SP));
+//        int cp = cursor.getInt(cursor.getColumnIndex(COL_CP));
+//
+//        return new PlayerCharacter(id, name, xp, hp, sp, cp);
+//    }
         playerCharCursorAdapter = new SimpleCursorAdapter(getBaseContext(), R.layout.pc_lv_item_layout, cursor, fromNames, toViews, 0);
         ListView pcList = (ListView) findViewById(R.id.pcList);
         pcList.setAdapter(playerCharCursorAdapter);
