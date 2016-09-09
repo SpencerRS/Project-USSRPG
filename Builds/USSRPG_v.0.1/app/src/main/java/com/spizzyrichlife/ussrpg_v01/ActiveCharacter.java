@@ -1,5 +1,7 @@
 package com.spizzyrichlife.ussrpg_v01;
 
+import android.content.Context;
+
 /**
  * Created by SpizzyRich on 9/8/16.
  */
@@ -15,10 +17,10 @@ public class ActiveCharacter {
         return activeCharacterInstance;
     }
 
-//    private ActiveCharacter() {
-//    }
+    private ActiveCharacter() {
+    }
 
-    private void setActiveCharacterInstance(int id){
-activeCharacter = DBHelper.getInstance(get).getActiveCharacter(id);
+    private void setActiveCharacterInstance(int id, Context context){
+activeCharacter = DBHelper.getInstance(context).getActiveCharacter(id);
     }
 }
