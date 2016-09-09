@@ -115,8 +115,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_create:
-               //TODO: Make this direct to character creation activity TODO: or make this a fragment inside a popup dialogue
+               //TODOne: Make this direct to character creation activity TODO: or make it a fragment inside a popup dialogue
 //                showDialogue();
+                Intent intent = new Intent(MainActivity.this, CharacterCreationActivity.class);
+                startActivity(intent);
                 return true;
 
             default:
