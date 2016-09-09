@@ -4,7 +4,10 @@
     <string name="Pool">Pool</string>
     <string name="Create">Create</string>
     <string name="Select">Select</string>
-    <string name="add_attribute">Add Attribute</string>
+    <string name="add_attribute">Add Attribute to Active Character</string>
     <string name="search">Search</string>
     <string name="search_hint">Search by Name or XP</string>
+    <string name="TestName">New Test Character</string>
+    <string name="TestXPValue">10</string>
+    <string name="create_new_character">Create New Character</string>
 </resources>

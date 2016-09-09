@@ -7,7 +7,7 @@ package com.spizzyrichlife.ussrpg_v01;
 //This is where the Player Character object is defined.
     //TODO: Add methods to this class to help do shiz as to/with the character
 public class PlayerCharacter {
-    int _id;
+//    int _id; //TODO: decide if this is needed in OOP
     String name;
     int xp; //Character's experience point total to compare total spent with
     int hp; //Character's max health

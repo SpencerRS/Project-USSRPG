@@ -40,13 +40,17 @@ Send out alerts whenever the GM makes a change (with sfx?)
 Utilize voice recognition for data entry?
 
 ###ERD
-![ERD](Images/USSRPG_ERD.png)
+![ERD](Resources/USSRPG_ERD.png)
 
 ##User Stories:
 
-As a USER, I want to store multiple characters so that I don’t have to recreate them each time.
+As a USER, I want to be able to create new characters.
 
-As a USER, I want to switch between my characters so that I can easily use any of them.
+As a USER, I want to store multiple characters so that I don’t have to recreate them each time I want to use them.
+
+As a USER, I want to switch between my characters so that I can easily use any one of them.
+
+As a USER, I want to be able to search my stored characters to find the the one I want without scrolling through a long list.
 
 As a USER, I want to view my character’s atributes so that I can easily see what I should roll.
 
@@ -55,10 +59,11 @@ As a USER, I want to be able to view my character’s decks/cards so that I can 
 As a USER, I want to be able to draw and maintan a hand of cards from my decks so that I don’t need to make and manage physical cards.
 
 ##Prototypes
-![](Images/Prototype/Map.JPG)
-![](Images/Prototype/Main.JPG)
-![](Images/Prototype/Character_Select.JPG)
-![](Images/Prototype/Character_View.JPG)
-![](Images/Prototype/Deck.JPG)
-![](Images/Prototype/Card_View.JPG)
-![](Images/Prototype/Dice_Pool.JPG)
+
+![](Resources/Prototype/White_Boards/Map.JPG)
+![](Resources/Prototype/White_Boards/Main.JPG)
+![](Resources/Prototype/White_Boards/Character_Select.JPG)
+![](Resources/Prototype/White_Boards/Character_View.JPG)
+![](Resources/Prototype/White_Boards/Deck.JPG)
+![](Resources/Prototype/White_Boards/Card_View.JPG)
+![](Resources/Prototype/White_Boards/Dice_Pool.JPG)
