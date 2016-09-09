@@ -1,5 +1,6 @@
 package com.spizzyrichlife.ussrpg_v01.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,7 +31,11 @@ public class CharacterCreationActivity extends AppCompatActivity {
                 int xp = Integer.parseInt(charStartXP.getText().toString());
                PlayerCharacter newPC = new PlayerCharacter(name, xp, 10,10,1);
                 DBHelper.getInstance(CharacterCreationActivity.this).createPC(newPC);
+                charName.setText("");
+                charStartXP.setText("");
                 //TODO: make this button close the activity once it is pressed and redirect back to main activity
+                Intent intent = new Intent(CharacterCreationActivity.this, CharacterSelectionActivity.class);
+                startActivity(intent);
             }
         });
     }
