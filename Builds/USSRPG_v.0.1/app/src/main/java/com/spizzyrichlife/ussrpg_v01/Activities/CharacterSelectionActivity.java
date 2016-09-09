@@ -10,9 +10,13 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.spizzyrichlife.ussrpg_v01.DBHelper;
 import com.spizzyrichlife.ussrpg_v01.R;
@@ -29,6 +33,17 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         listView = (ListView) findViewById(R.id.pcList);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView nameSpace = (TextView) view.findViewById(R.id.pc_lv_character_name);
+                DBHelper.getInstance(CharacterSelectionActivity.this).deleteRow(nameSpace.getText().toString());
+                Toast.makeText(CharacterSelectionActivity.this, "Deleting " + nameSpace.getText().toString(), Toast.LENGTH_SHORT).show();
+                populateListView();
+                return false;
+            }
+        });
+
         populateListView();
     }
 
@@ -50,7 +65,9 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         Cursor cursor = DBHelper.getInstance(CharacterSelectionActivity.this).getCharacterPreviews();
         String[] fromNames = new String[]{DBHelper.COL_NAME, DBHelper.COL_XP, DBHelper.COL_HP, DBHelper.COL_SP, DBHelper.COL_CP};
         int[] toViews = new int[]{R.id.pc_lv_character_name, R.id.pc_lv_character_xp, R.id.pc_lv_character_hp, R.id.pc_lv_character_sp, R.id.pc_lv_character_cp};
-        SimpleCursorAdapter playerCharCursorAdapter;    //TODO: Fix this getter
+        SimpleCursorAdapter playerCharCursorAdapter;
+
+        //TODO: Fix this getter
 //    public PlayerCharacter getPC(int id) {
 //        // Get a reference to the database
 //        SQLiteDatabase db = getReadableDatabase();
