@@ -147,6 +147,17 @@ public class DBHelper extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndex(COL_CP)));
         return activeCharacter;
     }
+    //Delete a row from the PC table
+public void deleteRow(String name){
+    SQLiteDatabase db = this.getWritableDatabase();
+    db.delete(TABLE_NAME_PC, COL_NAME +" = ?", new String[]{name});
+}
+
+
+//    getWritableDatabase().delete(
+//            "'" + game + "'",
+//            getGameAttributes(game)[1] + " = " + "'" + cardID + "'",
+//            null);
 }
 
 //TODO: Fix this getter
