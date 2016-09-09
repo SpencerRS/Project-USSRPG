@@ -33,7 +33,7 @@ public class CharacterCreationActivity extends AppCompatActivity {
                 DBHelper.getInstance(CharacterCreationActivity.this).createPC(newPC);
                 charName.setText("");
                 charStartXP.setText("");
-                //TODO: make this button close the activity once it is pressed and redirect back to main activity
+                //TODOne: make this button close the activity once it is pressed and redirect back to main activity
                 Intent intent = new Intent(CharacterCreationActivity.this, CharacterSelectionActivity.class);
                 startActivity(intent);
             }
