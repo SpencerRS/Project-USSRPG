@@ -24,7 +24,7 @@
         android:layout_below="@+id/my_toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:background="#990c0c" />
+        android:background="#990c0c"
         android:text="@string/Lobby" />
 
     <Button
