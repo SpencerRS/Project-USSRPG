@@ -13,10 +13,8 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 /**
  * Created by SpizzyRich on 9/7/16.
@@ -34,16 +32,16 @@ public class EspressoTests {
 //            .check(matches(isDisplayed()));
 //    }
 
-    @Test
-    public void testCharacterCreation() throws Exception{
-        onView(ViewMatchers.withId(R.id.selectMainButton))
-                .perform(click())
-                .check(matches(
-                        isDisplayed(
-                                onView(ViewMatchers.withId(R.id.pcList)))
-                )
-                );
-    }
+//    @Test
+//    public void testCharacterCreation() throws Exception{
+//        onView(ViewMatchers.withId(R.id.selectMainButton))
+//                .perform(click())
+//                .check(matches(
+//                        isDisplayed(
+//                                onView(ViewMatchers.withId(R.id.pcList)))
+//                )
+//                );
+//    }
 
     @Test
     public void testCharCreateButton() throws Exception {
