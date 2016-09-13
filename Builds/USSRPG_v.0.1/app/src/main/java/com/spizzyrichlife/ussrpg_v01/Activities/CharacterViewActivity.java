@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.spizzyrichlife.ussrpg_v01.R;
 
-public class CharacterView extends AppCompatActivity {
-
+public class CharacterViewActivity extends AppCompatActivity {
+//TODO: get intents and update view with values
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -7,14 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.spizzyrichlife.ussrpg_v01.Activities.CharacterView">
+    tools:context=".Activities.CharacterViewActivity">
 
     <TextView
         android:id="@+id/nameValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Char. Name"
-        android:textSize="25sp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/hpBrand"
