@@ -43,6 +43,13 @@ public class CharacterSelectionActivity extends AppCompatActivity {
                 return false;
             }
         });
+        //TODO: put extras in intent based on which character is clicked
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
 
         populateListView();
     }

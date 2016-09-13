@@ -35,7 +35,7 @@
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.CharacterView"></activity>
+        <activity android:name=".Activities.CharacterViewActivity"></activity>
     </application>
 
 </manifest>
