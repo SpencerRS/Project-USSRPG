@@ -47,7 +47,11 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+//                ActiveCharacter.getInstance().setActiveCharacterInstance();
+                Intent intent = new Intent(CharacterSelectionActivity.this, CharacterViewActivity.class);
+//                  TODO: Add intents to pass to character view.
+//                intent.putExtra("name", )
+                startActivity(intent);
             }
         });
 
