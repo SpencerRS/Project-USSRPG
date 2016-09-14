@@ -50,7 +50,7 @@ public class CharacterSelectionActivity extends AppCompatActivity {
 //                ActiveCharacter.getInstance().setActiveCharacterInstance();
                 Intent intent = new Intent(CharacterSelectionActivity.this, CharacterViewActivity.class);
 //                  TODO: Add intents to pass to character view.
-//                intent.putExtra("name", )
+//                intent.putExtra("name", DBHelper.getInstance(CharacterSelectionActivity.this));
                 startActivity(intent);
             }
         });
