@@ -126,14 +126,30 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+
+    public Cursor getCharacterByName(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME_PC,
+                CHARACTER_PREVIEW_COLUMN_SELECTION,
+                COL_NAME + " LIKE ?",
+                new String[]{"%" + name + "%"},
+                null,
+                null,
+                null,
+                null);
+
+        return cursor;
+    }
+
     //Grabs a character by its _id and returns it as a Player Character Object.
-    public PlayerCharacter getActiveCharacter(int id){
+    public PlayerCharacter getActiveCharacter(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME_PC,
                 CHARACTER_PREVIEW_COLUMN_SELECTION,
                 COL_ID + " =?",
-                new String[] {String.valueOf(id)},
+                new String[]{String.valueOf(id)},
                 null,
                 null,
                 null,
@@ -147,11 +163,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndex(COL_CP)));
         return activeCharacter;
     }
+
     //Delete a row from the PC table
-public void deleteRow(String name){
-    SQLiteDatabase db = this.getWritableDatabase();
-    db.delete(TABLE_NAME_PC, COL_NAME +" = ?", new String[]{name});
-}
+    public void deleteRow(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME_PC, COL_NAME + " = ?", new String[]{name});
+    }
 
 
 //    getWritableDatabase().delete(
