@@ -47,10 +47,11 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView nameSpace = (TextView) view.findViewById(R.id.pc_lv_character_name);
 //                ActiveCharacter.getInstance().setActiveCharacterInstance();
                 Intent intent = new Intent(CharacterSelectionActivity.this, CharacterViewActivity.class);
 //                  TODO: Add intents to pass to character view.
-//                intent.putExtra("name", )
+                intent.putExtra("name", nameSpace.getText());
                 startActivity(intent);
             }
         });
