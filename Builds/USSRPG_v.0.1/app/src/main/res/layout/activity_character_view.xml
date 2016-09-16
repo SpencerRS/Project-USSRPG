@@ -92,4 +92,11 @@
         android:text="XXX"
         android:textSize="20sp" />
 
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Character's Cards go here..."
+        android:textSize="50dp"/>
+
 </RelativeLayout>

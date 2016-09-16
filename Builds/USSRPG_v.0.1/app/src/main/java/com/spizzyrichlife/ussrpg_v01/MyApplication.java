@@ -7,10 +7,10 @@ import com.facebook.stetho.Stetho;
 /**
  * Created by SpizzyRich on 9/1/16.
  */
-public class MyApplication extends Application{
-// This is where stetho inspection lives.
+public class MyApplication extends Application {
+    // This is where stetho inspection lives.
     @Override
-    public void onCreate(){
+    public void onCreate() {
         super.onCreate();
         Stetho.initializeWithDefaults(this);
     }
