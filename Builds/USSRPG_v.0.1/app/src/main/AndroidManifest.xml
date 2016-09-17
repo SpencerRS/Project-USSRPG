@@ -35,7 +35,8 @@
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.CharacterViewActivity"></activity>
+        <activity android:name=".Activities.CharacterViewActivity" />
+        <activity android:name=".Activities.RollResultsActivity"></activity>
     </application>
 
 </manifest>
