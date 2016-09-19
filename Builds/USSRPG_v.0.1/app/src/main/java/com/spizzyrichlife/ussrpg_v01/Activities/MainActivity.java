@@ -5,7 +5,7 @@ package com.spizzyrichlife.ussrpg_v01.Activities;
 //   [X]   Allow the user to search by at least three different search criteria
 //   [X]     Show results in separate entries/pages to the user, including descriptions, images, and whatever else you like
 //   [X]     Gather data for the search results from the database
-          //TODO: Add U and D functionality from CRUD
+//TODO: Add U and D functionality from CRUD
 //   [X]   Allow the user to add rows to a database, which they can view at any time
 //   [X]   Incorporate Object Oriented principles into your app
 //   [X]   Contain code comments, explaining the functionality behind sections of code
@@ -14,7 +14,7 @@ package com.spizzyrichlife.ussrpg_v01.Activities;
 //   [X]   Ensure that you add a sufficient number of tests for the features of each screen of your app
 //Bonus:
 //   []   Use relationships between tables (highly recommended)
-        //TODO: Create attributes table linked to PC table.
+//TODO: Create attributes table linked to PC table.
 //   []   Incorporate Square's Picasso photo library
 //   []   Incorporate Material Design principles into your app
 //   []   Add more complexity to the user's searches (possibly allowing more than one search criteria at a time)
@@ -37,15 +37,15 @@ import com.spizzyrichlife.ussrpg_v01.R;
 public class MainActivity extends AppCompatActivity {
     Button toLobby;
     Button toPool;
-//    Button toCreation;
     Button toSelection;
+    //    Button toCreation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.my_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
         //TODOne: Lobby Button to Multi-player Lobby Activity
@@ -68,16 +68,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        //TODOne: Creation Button link to Character Creation Activity
-//        toCreation = (Button) findViewById(R.id.create_main_button);
-//        toCreation.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, CharacterCreationActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
         //TODOne: Selection Button to Character Selection Activity
         toSelection = (Button) findViewById(R.id.selectMainButton);
         toSelection.setOnClickListener(new View.OnClickListener() {
@@ -90,24 +80,33 @@ public class MainActivity extends AppCompatActivity {
         });
         //Get first instance on create.
         DBHelper.getInstance(this);
-
     }
+    // Creation moved to Action Bar
+    //        //TODOne: Creation Button link to Character Creation Activity
+//        toCreation = (Button) findViewById(R.id.create_main_button);
+//        toCreation.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, CharacterCreationActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
     //TODO: Copy Both of these to each activity once it is complete.
     //Inflate options menu for this activity.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
+
     //Interpret menu item clicks.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add_attribute:
 //              TODO: Make this popup a fragment to add Attributes to the currently selected character
-
                 return true;
 
             case R.id.action_edit:
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_create:
-               //TODOne: Make this direct to character creation activity TODO: or make it a fragment inside a popup dialogue
+                //TODOne: Make this direct to character creation activity TODO: or make it a fragment inside a popup dialogue
 //                showDialogue();
                 Intent intent = new Intent(MainActivity.this, CharacterCreationActivity.class);
                 startActivity(intent);

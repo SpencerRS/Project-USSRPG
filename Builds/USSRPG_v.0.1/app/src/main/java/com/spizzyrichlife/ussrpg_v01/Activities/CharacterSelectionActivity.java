@@ -21,7 +21,8 @@ import android.widget.Toast;
 import com.spizzyrichlife.ussrpg_v01.DBHelper;
 import com.spizzyrichlife.ussrpg_v01.R;
 
-//This is where players view all the PCs and select their active PC TODO: add ability so select active character.
+//This is where players view all the PCs and select their active PC
+// TODOne: Allow user to click on a character and view them in detail in another activity. TODO: add ability so select active character.
 public class CharacterSelectionActivity extends AppCompatActivity {
     ListView listView;
 
@@ -33,6 +34,9 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         listView = (ListView) findViewById(R.id.pcList);
+
+        //For deleting, long click
+        //TODO: repurpose long click for Active character selection. //TODO: add delete as Action Button in Character View with confirmation dialogue
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -41,6 +45,19 @@ public class CharacterSelectionActivity extends AppCompatActivity {
                 Toast.makeText(CharacterSelectionActivity.this, "Deleting " + nameSpace.getText().toString(), Toast.LENGTH_SHORT).show();
                 populateListView();
                 return false;
+            }
+        });
+
+        //For selecting active character/ viewing character
+        //TODOne: put extra in intent based on which character is clicked
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView nameSpace = (TextView) view.findViewById(R.id.pc_lv_character_name);
+//                ActiveCharacter.getInstance().setActiveCharacterInstance();
+                Intent intent = new Intent(CharacterSelectionActivity.this, CharacterViewActivity.class);
+                intent.putExtra("name", nameSpace.getText());
+                startActivity(intent);
             }
         });
 
@@ -60,14 +77,14 @@ public class CharacterSelectionActivity extends AppCompatActivity {
         return true;
     }
 
-    //This method can be called anytime the Character Selection list view needs to be updated.
+    //This method can be called any time the Character Selection list view needs to be updated.
     public void populateListView() {
         Cursor cursor = DBHelper.getInstance(CharacterSelectionActivity.this).getCharacterPreviews();
         String[] fromNames = new String[]{DBHelper.COL_NAME, DBHelper.COL_XP, DBHelper.COL_HP, DBHelper.COL_SP, DBHelper.COL_CP};
         int[] toViews = new int[]{R.id.pc_lv_character_name, R.id.pc_lv_character_xp, R.id.pc_lv_character_hp, R.id.pc_lv_character_sp, R.id.pc_lv_character_cp};
         SimpleCursorAdapter playerCharCursorAdapter;
 
-        //TODO: Fix this getter
+        //TODO: Fix this getter???
 //    public PlayerCharacter getPC(int id) {
 //        // Get a reference to the database
 //        SQLiteDatabase db = getReadableDatabase();
@@ -92,11 +109,13 @@ public class CharacterSelectionActivity extends AppCompatActivity {
 //
 //        return new PlayerCharacter(id, name, xp, hp, sp, cp);
 //    }
+
         playerCharCursorAdapter = new SimpleCursorAdapter(getBaseContext(), R.layout.pc_lv_item_layout, cursor, fromNames, toViews, 0);
         ListView pcList = (ListView) findViewById(R.id.pcList);
         pcList.setAdapter(playerCharCursorAdapter);
     }
 
+    //For Search functionality
     @Override
     protected void onNewIntent(Intent intent) {
         handleIntent(intent);
