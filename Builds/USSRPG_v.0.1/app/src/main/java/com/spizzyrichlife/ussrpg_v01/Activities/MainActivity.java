@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Notification ID as member
     public static final int NOTIFICATION_ID = 1;
+    public static final int INBOX_NOTIFICATION_ID = 2;
+    public static final int BIG_TEXT_NOTIFICATION_ID = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MpLobbyActivity.class);
-                notification();
+                notificationMP();
                 startActivity(intent);
             }
         });
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DicePoolerActivity.class);
+                notificationDicePool();
                 startActivity(intent);
             }
         });
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CharacterSelectionActivity.class);
                 DBHelper.getInstance(MainActivity.this);
+                notificationCharSelect();
                 startActivity(intent);
             }
         });
@@ -143,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 //        charCreate.show(manager);
 //    }
 
-    public void notification(){
+    public void notificationMP(){
         //HOWTO: Notification
         //Pending Intent Test
         Intent intent = new Intent(this, MpLobbyActivity.class);
@@ -161,4 +165,34 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(NOTIFICATION_ID, builder.build());
     }
+//    //Inbox Style notification test. TODO: Fix inbox style notification
+//    public void notificationCharSelect(){
+//        Intent intent = new Intent(this, CharacterSelectionActivity.class);
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+//
+//        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+//        inboxStyle.setBigContentTitle("Inbox Notification");
+//        inboxStyle.addLine("Message 1.");
+//        inboxStyle.addLine("Message 2.");
+//        inboxStyle.addLine("Message 3.");
+//        inboxStyle.addLine("Message 4.");
+//        inboxStyle.addLine("Message 5.");
+//        inboxStyle.setSummaryText("+2 more");
+//        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        manager.notify(INBOX_NOTIFICATION_ID, inboxStyle.build());
+//    }
+//    //Big Text notification test. TODO: Fix big text notification
+//    public void notificationDicePool(){
+//        NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
+//        bigText.bigText("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+//        bigText.setBigContentTitle("Big Text Notification");
+//        bigText.setSummaryText("By: Author of Lorem ipsum");
+//        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        manager.notify(BIG_TEXT_NOTIFICATION_ID, bigText.build());
+//    }
+//    //Big Picture notification test. TODO: Fix big picture notification
+//    public void notificationDP2(){
+//        NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle();
+//        bigPictureStyle.bigPicture(BitmapFactory.decodeResource(getResources(),R.drawable.<IMAGE_GOES_HERE>)).build();
+//    }
 }
