@@ -146,14 +146,14 @@ public class MainActivity extends AppCompatActivity {
     public void notification(){
         //HOWTO: Notification
         //Pending Intent Test
-        Intent intent = new Intent(this, CharacterSelectionActivity.class);
+        Intent intent = new Intent(this, MpLobbyActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
 
         //Test Notification that pops up when you open the app's main activity.
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentTitle("This is a notification");
-        builder.setContentText("Hello, this is some more text");
+        builder.setContentText("Hello; this is some more text");
         builder.setAutoCancel(true);
         builder.setContentIntent(pendingIntent);
         builder.setPriority(Notification.PRIORITY_DEFAULT);
