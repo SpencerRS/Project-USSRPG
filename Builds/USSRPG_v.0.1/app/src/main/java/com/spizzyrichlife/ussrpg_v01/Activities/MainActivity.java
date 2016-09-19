@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     Button toSelection;
     //    Button toCreation;
 
-    //Notification ID
+    //Notification ID as member
     public static final int NOTIFICATION_ID = 1;
 
     @Override
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MpLobbyActivity.class);
+                notification();
                 startActivity(intent);
             }
         });
@@ -89,21 +90,6 @@ public class MainActivity extends AppCompatActivity {
         //Get first instance on create.
         DBHelper.getInstance(this);
 
-        //Pending Intent Test
-        Intent intent = new Intent(this, CharacterSelectionActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
-
-        //Test Notification that pops up when you open the app's main activity.
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle("This is a notification");
-        builder.setContentText("Hello, this is some more text");
-        builder.setAutoCancel(true);
-        builder.setContentIntent(pendingIntent);
-        builder.setPriority(Notification.PRIORITY_DEFAULT);
-
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(NOTIFICATION_ID, builder.build());
     }
     // Creation moved to Action Bar
     //        //TODOne: Creation Button link to Character Creation Activity
@@ -156,4 +142,23 @@ public class MainActivity extends AppCompatActivity {
 //        CharacterCreateDialog charCreate = new CharacterCreateDialog();
 //        charCreate.show(manager);
 //    }
+
+    public void notification(){
+        //HOWTO: Notification
+        //Pending Intent Test
+        Intent intent = new Intent(this, CharacterSelectionActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+
+        //Test Notification that pops up when you open the app's main activity.
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentTitle("This is a notification");
+        builder.setContentText("Hello, this is some more text");
+        builder.setAutoCancel(true);
+        builder.setContentIntent(pendingIntent);
+        builder.setPriority(Notification.PRIORITY_DEFAULT);
+        //Manages Notification(s)
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(NOTIFICATION_ID, builder.build());
+    }
 }
