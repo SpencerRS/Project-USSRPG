@@ -5,9 +5,9 @@ package com.spizzyrichlife.ussrpg_v01;
  */
 
 //This is where the Player Character object is defined.
-    //TODO: Add methods to this class to help do shiz as to/with the character
+//TODO: Add methods to this class to help do shiz to/with the character
 public class PlayerCharacter {
-    int _id;
+    //    int _id; //TODO: decide if this is needed in OOP
     String name;
     int xp; //Character's experience point total to compare total spent with
     int hp; //Character's max health
@@ -17,7 +17,7 @@ public class PlayerCharacter {
 //    int player_id;
 //    int location_id;
 
-// TODO: update with player_id and location_id when they are implemented
+    // TODO: update with player_id and location_id when they are implemented
     public PlayerCharacter(String name, int xp, int hp, int sp, int cp) {
         this.name = name;
         this.xp = xp;

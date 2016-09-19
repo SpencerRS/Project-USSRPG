@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activities.DicePoolerActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
@@ -14,10 +15,151 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:titleTextColor="#ffffff"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/my_toolbar"-->
+    <!--android:text="Dice Pooler"/>-->
+
     <TextView
+        android:id="@+id/dicePoolerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/my_toolbar"
-        android:text="Dice Pooler"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:text="Dice Pool"
+        android:textSize="35dp" />
+
+    //Blue Dice To Roll
+
+    <EditText
+        android:id="@+id/blueDiceET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dicePoolerTitle"
+        android:layout_below="@id/dicePoolerTitle"
+        android:hint="@string/dicePoolHint"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/blueDiceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/blueDiceET"
+        android:layout_alignRight="@+id/dicePoolerTitle"
+        android:text="Blues"
+        android:textSize="20sp"/>
+
+    //Green Dice To Roll
+
+    <EditText
+        android:id="@+id/greenDiceET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dicePoolerTitle"
+        android:layout_below="@id/blueDiceET"
+        android:hint="@string/dicePoolHint"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/greenDiceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/greenDiceET"
+        android:layout_alignRight="@+id/dicePoolerTitle"
+        android:text="Greens"
+        android:textSize="20sp"/>
+
+    //Yellow Dice To Roll
+
+    <EditText
+        android:id="@+id/yellowDiceET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dicePoolerTitle"
+        android:layout_below="@id/greenDiceET"
+        android:hint="@string/dicePoolHint"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/yellowDiceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/yellowDiceET"
+        android:layout_alignRight="@+id/dicePoolerTitle"
+        android:text="Yellows"
+        android:textSize="20sp"/>
+
+    //Black Dice To Roll
+
+    <EditText
+        android:id="@+id/blackDiceET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dicePoolerTitle"
+        android:layout_below="@id/yellowDiceET"
+        android:hint="@string/dicePoolHint"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/blackDiceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/blackDiceET"
+        android:layout_alignRight="@+id/dicePoolerTitle"
+        android:text="Blacks"
+        android:textSize="20sp"/>
+
+    //Purple Dice To Roll
+
+    <EditText
+        android:id="@+id/purpleDiceET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dicePoolerTitle"
+        android:layout_below="@id/blackDiceET"
+        android:hint="@string/dicePoolHint"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/purpleDiceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/purpleDiceET"
+        android:layout_alignRight="@+id/dicePoolerTitle"
+        android:text="Purples"
+        android:textSize="20sp"/>
+
+    //Red Dice To Roll
+
+    <EditText
+        android:id="@+id/redDiceET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dicePoolerTitle"
+        android:layout_below="@id/purpleDiceET"
+        android:hint="@string/dicePoolHint"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/redDiceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/redDiceET"
+        android:layout_alignRight="@+id/dicePoolerTitle"
+        android:text="Reds"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/rollDiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Roll Dice"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
 
 </RelativeLayout>
