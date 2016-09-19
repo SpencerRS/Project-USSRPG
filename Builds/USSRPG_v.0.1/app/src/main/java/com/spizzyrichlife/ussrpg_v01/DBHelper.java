@@ -18,19 +18,20 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "USSRPG";
     //Set up Player Characters Table
     public static final String TABLE_NAME_PC = "Player_Characters";
-
+    //Keep Column Strings
     public static final String COL_ID = "_id";
     public static final String COL_NAME = "Name";
     public static final String COL_XP = "XP";
     public static final String COL_HP = "HP";
     public static final String COL_SP = "SP";
     public static final String COL_CP = "CP";
+
 //    public static final String COL_LOCATION_ID = "Location_id";
 
     //    public static final String COL_<COLUMN_NAME> = "<Column_Name>"
     //                                   ^Repeat as needed^
-// Get Character preview (Name, HP, SP, XP)
-    public static final String[] CHARACTER_PREVIEW_COLUMN_SELECTION = {COL_ID, COL_NAME, COL_XP, COL_HP, COL_SP, COL_CP};
+// Get Character preview (Name, XP, HP, SP, CP)
+    public static final String[] CHARACTER_COLUMN_SELECTION = {COL_ID, COL_NAME, COL_XP, COL_HP, COL_SP, COL_CP};
 
     //Create Player Character Table
     private static final String CREATE_PC_TABLE =
@@ -59,16 +60,10 @@ public class DBHelper extends SQLiteOpenHelper {
         return mInstance;
     }
 
-//    private DBHelper(Context context) {
-//        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    //TODO: Figure out why ^this is broken^
-//    }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_PC_TABLE);
 //          ^Repeat as needed^
-
     }
 
     @Override
@@ -78,6 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //TODOne: Transition to object-accepting format
+    //TODO: Check that name is unique before adding to DB.
     public void createPC(PlayerCharacter newPC) {
         // Get a reference to the database
         SQLiteDatabase db = getWritableDatabase();
@@ -100,7 +96,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 //
         Cursor cursor = db.query(TABLE_NAME_PC, // a. table
-                CHARACTER_PREVIEW_COLUMN_SELECTION, // b. column names
+                CHARACTER_COLUMN_SELECTION, // b. column names
                 null, // c. selections
                 null, // d. selections args
                 null, // e. group by
@@ -115,25 +111,39 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME_PC,
-                CHARACTER_PREVIEW_COLUMN_SELECTION,
+                CHARACTER_COLUMN_SELECTION,
                 COL_NAME + " LIKE ? OR " + COL_XP + " LIKE ?",
                 new String[]{"%" + search + "%", "%" + search + "%"},
                 null,
                 null,
                 null,
                 null);
-
         return cursor;
-
     }
-    //Grabs a character by its _id and returns it as a Player Character Object.
-    public PlayerCharacter getActiveCharacter(int id){
+
+    // Using this to populate fields in Character View Activity based on which character is clicked.
+    public Cursor getCharacterByName(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME_PC,
-                CHARACTER_PREVIEW_COLUMN_SELECTION,
+                CHARACTER_COLUMN_SELECTION,
+                COL_NAME + " LIKE ?",
+                new String[]{"%" + name + "%"},
+                null,
+                null,
+                null,
+                null);
+        return cursor;
+    }
+
+    //Grabs a character by its _id and returns it as a Player Character Object.
+    public PlayerCharacter getActiveCharacter(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME_PC,
+                CHARACTER_COLUMN_SELECTION,
                 COL_ID + " =?",
-                new String[] {String.valueOf(id)},
+                new String[]{String.valueOf(id)},
                 null,
                 null,
                 null,
@@ -147,20 +157,15 @@ public class DBHelper extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndex(COL_CP)));
         return activeCharacter;
     }
+
     //Delete a row from the PC table
-public void deleteRow(String name){
-    SQLiteDatabase db = this.getWritableDatabase();
-    db.delete(TABLE_NAME_PC, COL_NAME +" = ?", new String[]{name});
+    public void deleteRow(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME_PC, COL_NAME + " = ?", new String[]{name});
+    }
 }
 
-
-//    getWritableDatabase().delete(
-//            "'" + game + "'",
-//            getGameAttributes(game)[1] + " = " + "'" + cardID + "'",
-//            null);
-}
-
-//TODO: Fix this getter
+//TODONot: Fix this getter
 //    public PlayerCharacter getPC(int id) {
 //        // Get a reference to the database
 //        SQLiteDatabase db = getReadableDatabase();

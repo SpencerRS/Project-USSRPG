@@ -10,4 +10,9 @@
     <string name="TestName">New Test Character</string>
     <string name="TestXPValue">10</string>
     <string name="create_new_character">Create New Character</string>
+    <string name="xpBrand">XP:</string>
+    <string name="hp">HP:</string>
+    <string name="sp">SP:</string>
+    <string name="cp">CP:</string>
+    <string name="dicePoolHint">X</string>
 </resources>
