@@ -18,5 +18,4 @@ public class CharacterCreateDialog extends DialogFragment {
     }
 
 
-
 }
