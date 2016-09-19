@@ -39,8 +39,14 @@ public class DicePoolerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DicePoolerActivity.this, RollResultsActivity.class);
                 //Pass numbers of dice to roll, store as array
-                int[] diceBundle = {Integer.parseInt(blues.toString()), Integer.parseInt(greens.toString()), Integer.parseInt(yellows.toString()), Integer.parseInt(blacks.toString()), Integer.parseInt(purples.toString()), Integer.parseInt(reds.toString())};
-                intent.putExtra("dice", diceBundle);
+//                int[] diceBundle = {Integer.parseInt(blues.getText().toString()), Integer.parseInt(greens.getText().toString()), Integer.parseInt(yellows.getText().toString()), Integer.parseInt(blacks.getText().toString()), Integer.parseInt(purples.getText().toString()), Integer.parseInt(reds.getText().toString())};
+//                intent.putExtra("dice", diceBundle);
+                intent.putExtra("blues", Integer.parseInt(blues.getText().toString()));
+                intent.putExtra("greens", Integer.parseInt(greens.getText().toString()));
+                intent.putExtra("yellows", Integer.parseInt(yellows.getText().toString()));
+                intent.putExtra("blacks", Integer.parseInt(blacks.getText().toString()));
+                intent.putExtra("purples", Integer.parseInt(purples.getText().toString()));
+                intent.putExtra("reds", Integer.parseInt(reds.getText().toString()));
                 startActivity(intent);
             }
         });
