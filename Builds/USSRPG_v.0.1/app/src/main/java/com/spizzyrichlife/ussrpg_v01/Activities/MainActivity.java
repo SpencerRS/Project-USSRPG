@@ -21,9 +21,14 @@ package com.spizzyrichlife.ussrpg_v01.Activities;
 //   []   Add JUnit tests for your non-Android classes (i.e. not Activity or Fragment)
 
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     Button toPool;
     Button toSelection;
     //    Button toCreation;
+
+    //Notification ID
+    public static final int NOTIFICATION_ID = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +88,22 @@ public class MainActivity extends AppCompatActivity {
         });
         //Get first instance on create.
         DBHelper.getInstance(this);
+
+        //Pending Intent Test
+        Intent intent = new Intent(this, CharacterSelectionActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+
+        //Test Notification that pops up when you open the app's main activity.
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentTitle("This is a notification");
+        builder.setContentText("Hello, this is some more text");
+        builder.setAutoCancel(true);
+        builder.setContentIntent(pendingIntent);
+        builder.setPriority(Notification.PRIORITY_DEFAULT);
+
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(NOTIFICATION_ID, builder.build());
     }
     // Creation moved to Action Bar
     //        //TODOne: Creation Button link to Character Creation Activity
