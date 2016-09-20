@@ -1,5 +1,8 @@
 package com.spizzyrichlife.ussrpg_v01.Activities;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * Created by SpizzyRich on 9/19/16.
  */
@@ -34,7 +37,7 @@ public class DiceRoller {
     String[] yellow9 = {"success",              "1",    "0"};
     String[] yellow10 = {"success + advantage", "1",    "1"};
     String[] yellow11 = {"successes",           "2",    "0"};
-    String[] yellow11 = {"critical success",    "3",    "3"};
+    String[] yellow12 = {"critical success",    "3",    "3"};
 
     //Set Black Dice Values (d6)
     String[] black1 = {"blank",                 "0",    "0"}; //[0] = description, [1] = success, [2] = advantage
@@ -67,4 +70,50 @@ public class DiceRoller {
     String[] red10 = {"fails",                  "-2",   "0"};
     String[] red11 = {"disadvantage",           "0",    "-1"};
     String[] red12 = {"critical fail",          "-3",   "-3"};
+
+    //Roll a dice of sizeX
+    public int rollDx(int x){
+        Random random = new Random();
+        int randomNum = random.nextInt(x - 1) + 1;
+        return randomNum;
+    }
+    //Roll num of blue dice, recieve results as Array List of String[]s. List length = num
+    public ArrayList<String[]> rollBlue(int num){
+        ArrayList<String[]> blueResults = new ArrayList<>();
+        for (int i = 0; i < num ; i++) {
+            int roll = rollDx(6);
+            if (roll == 1){
+                blueResults.add(blue1);
+            }else if (roll == 2){
+                blueResults.add(blue2);
+            }else if (roll == 3){
+                blueResults.add(blue3);
+            }else if (roll == 4){
+                blueResults.add(blue4);
+            }else if (roll == 5){
+                blueResults.add(blue5);
+            }else blueResults.add(blue6);
+        }
+        return blueResults;
+    }
+
+    //TODO: copy formula for other dice
+//    public ArrayList<String[]> roll<X>(int num){
+//        ArrayList<String[]> someResults = new ArrayList<>();
+//        for (int i = 0; i < num ; i++) {
+//            int roll = rollDx(6);
+//            if (roll == 1){
+//                someResults.add(x1);
+//            }else if (roll == 2){
+//                someResults.add(x2);
+//            }else if (roll == 3){
+//                someResults.add(x3);
+//            }else if (roll == 4){
+//                someResults.add(x4);
+//            }else if (roll == 5){
+//                someResults.add(x5);
+//            }else someResults.add(x6);
+//        }
+//        return someResults;
+//    }
 }
