@@ -77,7 +77,7 @@ public class DiceRoller {
         int randomNum = random.nextInt(x - 1) + 1;
         return randomNum;
     }
-    //Roll num of blue dice, recieve results as Array List of String[]s. List length = num
+    //Roll num of blue dice, receive results as Array List of String[]s. List length = num
     public ArrayList<String[]> rollBlue(int num){
         ArrayList<String[]> blueResults = new ArrayList<>();
         for (int i = 0; i < num ; i++) {
@@ -97,8 +97,141 @@ public class DiceRoller {
         return blueResults;
     }
 
-    //TODO: copy formula for other dice
-//    public ArrayList<String[]> roll<X>(int num){
+    //Roll num of green dice, receive results as Array List of String[]s. List length = num
+    public ArrayList<String[]> rollGreen(int num){
+        ArrayList<String[]>greenResults = new ArrayList<>();
+        for (int i = 0; i < num ; i++) {
+            int roll = rollDx(6);
+            if (roll == 1){
+                greenResults.add(green1);
+            }else if (roll == 2){
+                greenResults.add(green2);
+            }else if (roll == 3){
+                greenResults.add(green3);
+            }else if (roll == 4){
+                greenResults.add(green4);
+            }else if (roll == 5){
+                greenResults.add(green5);
+            }else if (roll == 6){
+                greenResults.add(green6);
+            }else if (roll == 7){
+                greenResults.add(green7);
+            }else greenResults.add(green8);
+        }
+        return greenResults;
+    }
+
+        //Roll num of yellow dice, receive results as Array List of String[]s. List length = num
+        public ArrayList<String[]> rollYellow(int num){
+        ArrayList<String[]> yellowResults = new ArrayList<>();
+        for (int i = 0; i < num ; i++) {
+            int roll = rollDx(6);
+            if (roll == 1){
+                yellowResults.add(yellow1);
+            }else if (roll == 2){
+                yellowResults.add(yellow2);
+            }else if (roll == 3){
+                yellowResults.add(yellow3);
+            }else if (roll == 4){
+                yellowResults.add(yellow4);
+            }else if (roll == 5){
+                yellowResults.add(yellow5);
+            }else if (roll == 6){
+                yellowResults.add(yellow6);
+            }else if (roll == 7){
+                yellowResults.add(yellow7);
+            }else if (roll == 8){
+                yellowResults.add(yellow8);
+            }else if (roll == 9){
+                yellowResults.add(yellow9);
+            }else if (roll == 10){
+                yellowResults.add(yellow10);
+            }else if (roll == 11) {
+                yellowResults.add(yellow11);
+            }else yellowResults.add(yellow12);
+        }
+        return yellowResults;
+    }
+
+        //Roll num of black dice, receive results as Array List of String[]s. List length = num
+        public ArrayList<String[]> rollBlack(int num){
+        ArrayList<String[]> blackResults = new ArrayList<>();
+        for (int i = 0; i < num ; i++) {
+            int roll = rollDx(6);
+            if (roll == 1){
+                blackResults.add(black1);
+            }else if (roll == 2){
+                blackResults.add(black2);
+            }else if (roll == 3){
+                blackResults.add(black3);
+            }else if (roll == 4){
+                blackResults.add(black4);
+            }else if (roll == 5){
+                blackResults.add(black5);
+            }else blackResults.add(black6);
+        }
+        return blackResults;
+    }
+
+    //Roll num of purple dice, receive results as Array List of String[]s. List length = num
+    public ArrayList<String[]> rollPurple(int num){
+        ArrayList<String[]>purpleResults = new ArrayList<>();
+        for (int i = 0; i < num ; i++) {
+            int roll = rollDx(6);
+            if (roll == 1){
+                purpleResults.add(purple1);
+            }else if (roll == 2){
+                purpleResults.add(purple2);
+            }else if (roll == 3){
+                purpleResults.add(purple3);
+            }else if (roll == 4){
+                purpleResults.add(purple4);
+            }else if (roll == 5){
+                purpleResults.add(purple5);
+            }else if (roll == 6){
+                purpleResults.add(purple6);
+            }else if (roll == 7){
+                purpleResults.add(purple7);
+            }else purpleResults.add(purple8);
+        }
+        return purpleResults;
+    }
+
+    //Roll num of red dice, receive results as Array List of String[]s. List length = num
+    public ArrayList<String[]> rollRed(int num){
+        ArrayList<String[]> redResults = new ArrayList<>();
+        for (int i = 0; i < num ; i++) {
+            int roll = rollDx(6);
+            if (roll == 1){
+                redResults.add(red1);
+            }else if (roll == 2){
+                redResults.add(red2);
+            }else if (roll == 3){
+                redResults.add(red3);
+            }else if (roll == 4){
+                redResults.add(red4);
+            }else if (roll == 5){
+                redResults.add(red5);
+            }else if (roll == 6){
+                redResults.add(red6);
+            }else if (roll == 7){
+                redResults.add(red7);
+            }else if (roll == 8){
+                redResults.add(red8);
+            }else if (roll == 9){
+                redResults.add(red9);
+            }else if (roll == 10){
+                redResults.add(red10);
+            }else if (roll == 11) {
+                redResults.add(red11);
+            }else redResults.add(red12);
+        }
+        return redResults;
+    }
+
+    //TODOne: copy formula for other dice
+//        //Roll num of green dice, receive results as Array List of String[]s. List length = num
+//        public ArrayList<String[]> roll<X>(int num){
 //        ArrayList<String[]> someResults = new ArrayList<>();
 //        for (int i = 0; i < num ; i++) {
 //            int roll = rollDx(6);
