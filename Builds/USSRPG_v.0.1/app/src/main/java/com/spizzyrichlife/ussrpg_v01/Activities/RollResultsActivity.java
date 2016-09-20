@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.spizzyrichlife.ussrpg_v01.R;
 
+import java.util.ArrayList;
+
 public class RollResultsActivity extends AppCompatActivity {
+    //Member variables for # dice to roll
     int[] diceBundle;
     int blues;
     int greens;
@@ -14,6 +17,15 @@ public class RollResultsActivity extends AppCompatActivity {
     int blacks;
     int purples;
     int reds;
+
+    //Member variables for roll results.
+    ArrayList<String[]> cupResults = new ArrayList<>();
+    ArrayList<String[]> blueResults = new ArrayList<>();
+    ArrayList<String[]> greenResults = new ArrayList<>();
+    ArrayList<String[]> yellowResults = new ArrayList<>();
+    ArrayList<String[]> blackResults = new ArrayList<>();
+    ArrayList<String[]> purpleResults = new ArrayList<>();
+    ArrayList<String[]> redResults = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +50,15 @@ public class RollResultsActivity extends AppCompatActivity {
 //        purples = diceBundle[4];
 //        reds = diceBundle[5];
 
+        //Roll and store results of each roll
+        DiceRoller roller = new DiceRoller();
+        blueResults = roller.rollBlue(blues);
+        greenResults = roller.rollGreen(greens);
+        yellowResults = roller.rollYellow(yellows);
+        blackResults = roller.rollBlack(blacks);
+        purpleResults = roller.rollPurple(purples);
+        redResults = roller.rollRed(reds);
+
     }
+
 }
