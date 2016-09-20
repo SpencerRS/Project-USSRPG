@@ -9,6 +9,9 @@ import com.spizzyrichlife.ussrpg_v01.R;
 import java.util.ArrayList;
 
 public class RollResultsActivity extends AppCompatActivity {
+    int success = 0;
+    int advantage = 0;
+
     //Member variables for # dice to roll
     int[] diceBundle;
     int blues;
@@ -19,7 +22,7 @@ public class RollResultsActivity extends AppCompatActivity {
     int reds;
 
     //Member variables for roll results.
-    ArrayList<String[]> cupResults = new ArrayList<>();
+    ArrayList<ArrayList<String[]>> cupResults = new ArrayList<>();
     ArrayList<String[]> blueResults = new ArrayList<>();
     ArrayList<String[]> greenResults = new ArrayList<>();
     ArrayList<String[]> yellowResults = new ArrayList<>();
@@ -36,12 +39,12 @@ public class RollResultsActivity extends AppCompatActivity {
         Intent intent = getIntent();
 //        diceBundle = intent.getIntArrayExtra("dice");
 
-        blues = intent.getIntExtra("blues",0);
-        greens = intent.getIntExtra("greens",0);
-        yellows = intent.getIntExtra("yellows",0);
-        blacks = intent.getIntExtra("blacks",0);
-        purples = intent.getIntExtra("purples",0);
-        reds = intent.getIntExtra("reds",0);
+        blues = intent.getIntExtra("blues", 0);
+        greens = intent.getIntExtra("greens", 0);
+        yellows = intent.getIntExtra("yellows", 0);
+        blacks = intent.getIntExtra("blacks", 0);
+        purples = intent.getIntExtra("purples", 0);
+        reds = intent.getIntExtra("reds", 0);
         //store numbers as member variables.
 //        blues = diceBundle[0];
 //        greens = diceBundle[1];
@@ -59,6 +62,52 @@ public class RollResultsActivity extends AppCompatActivity {
         purpleResults = roller.rollPurple(purples);
         redResults = roller.rollRed(reds);
 
+        //Bundle all roll results into Cup Results
+        cupResults.add(blueResults);
+        cupResults.add(greenResults);
+        cupResults.add(yellowResults);
+        cupResults.add(blackResults);
+        cupResults.add(purpleResults);
+        cupResults.add(redResults);
+
+        //Calculate successes
+        getSuccesses(blueResults);
+        getSuccesses(greenResults);
+        getSuccesses(yellowResults);
+        getSuccesses(blackResults);
+        getSuccesses(purpleResults);
+        getSuccesses(redResults);
+
+        //Calculate advantages
+        getAdvantages(blueResults);
+        getAdvantages(greenResults);
+        getAdvantages(yellowResults);
+        getAdvantages(blackResults);
+        getAdvantages(purpleResults);
+        getAdvantages(redResults);
+
+    }
+
+    //Set the value of int success member variable based on results of roll.
+    public void checkSuccess() {
+
+    }
+
+    //Get every success String (the second string in each String[] in the ArrayList)
+    public void getSuccesses(ArrayList<String[]> results) {
+        for (int i = 0; i < results.size(); i++) {
+            success += Integer.parseInt(results.get(i)[1]);
+        }
+    }
+
+    //Get every advantage String (the third string in each String[] in the ArrayList)
+    public void getAdvantages(ArrayList<String[]> results) {
+        for (int i = 0; i < results.size(); i++) {
+            advantage += Integer.parseInt(results.get(i)[2]);
+        }
     }
 
 }
+
+
+
