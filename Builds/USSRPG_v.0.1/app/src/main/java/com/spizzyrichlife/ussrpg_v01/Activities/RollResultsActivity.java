@@ -88,11 +88,6 @@ public class RollResultsActivity extends AppCompatActivity {
 
     }
 
-    //Set the value of int success member variable based on results of roll.
-    public void checkSuccess() {
-
-    }
-
     //Get every success String (the second string in each String[] in the ArrayList)
     public void getSuccesses(ArrayList<String[]> results) {
         for (int i = 0; i < results.size(); i++) {
