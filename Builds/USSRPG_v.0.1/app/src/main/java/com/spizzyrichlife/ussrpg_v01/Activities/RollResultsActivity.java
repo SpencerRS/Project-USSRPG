@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class RollResultsActivity extends AppCompatActivity {
     int success = 0;
     int advantage = 0;
+    ArrayList<String> diceFaces = new ArrayList<>();
 
     //Member variables for # dice to roll
     int[] diceBundle;
@@ -99,6 +100,13 @@ public class RollResultsActivity extends AppCompatActivity {
     public void getAdvantages(ArrayList<String[]> results) {
         for (int i = 0; i < results.size(); i++) {
             advantage += Integer.parseInt(results.get(i)[2]);
+        }
+    }
+
+    //Get every dice side String (the first string in each String[] in the ArrayList)
+    public void getDiceFaces(ArrayList<String[]> results) {
+        for (int i = 0; i < results.size(); i++) {
+             diceFaces.add(results.get(i)[0]);
         }
     }
 
