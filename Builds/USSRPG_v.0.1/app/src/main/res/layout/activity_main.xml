@@ -34,17 +34,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:background="#990c0c"
         android:text="@string/Pool" />
 
     <!--<Button-->
-        <!--android:id="@+id/create_main_button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:layout_marginLeft="30dp"-->
-        <!--android:text="@string/Create" />-->
+    <!--android:id="@+id/create_main_button"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginLeft="30dp"-->
+    <!--android:text="@string/Create" />-->
 
     <Button
         android:id="@+id/selectMainButton"
