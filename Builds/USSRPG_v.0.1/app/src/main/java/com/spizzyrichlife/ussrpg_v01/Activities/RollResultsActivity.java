@@ -9,6 +9,7 @@ import com.spizzyrichlife.ussrpg_v01.DiceRoller;
 import com.spizzyrichlife.ussrpg_v01.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class RollResultsActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class RollResultsActivity extends AppCompatActivity {
     TextView successTV;
     TextView advantageBrand;
     TextView advantageTV;
+    TextView diceFacesTV;
 
     //Set up space to track result totals.
     int success = 0;
@@ -48,6 +50,7 @@ public class RollResultsActivity extends AppCompatActivity {
         successTV = (TextView) findViewById(R.id.successesTV);
         advantageBrand = (TextView) findViewById(R.id.advantageBrand);
         advantageTV = (TextView) findViewById(R.id.advantagesTV);
+        diceFacesTV = (TextView) findViewById(R.id.diceFaces);
 
 
         //Get intent and use it to perform dice rolls
@@ -101,8 +104,19 @@ public class RollResultsActivity extends AppCompatActivity {
         getAdvantages(purpleResults);
         getAdvantages(redResults);
 
+        //Accumulate dice face results.
+        getDiceFaces("Blue", blueResults);
+        getDiceFaces("Green", greenResults);
+        getDiceFaces("Yellow", yellowResults);
+        getDiceFaces("Black", blackResults);
+        getDiceFaces("Purple", purpleResults);
+        getDiceFaces("Red", redResults);
+
         successTV.setText(Integer.toString(success));
         advantageTV.setText(Integer.toString(advantage));
+        String diceFaceString = Arrays.toString(diceFaces.toArray());
+        diceFacesTV.setText((diceFaceString.substring(1, diceFaceString.length()-1).trim()));
+
 
     }
 
@@ -121,9 +135,9 @@ public class RollResultsActivity extends AppCompatActivity {
     }
 
     //Get every dice side String (the first string in each String[] in the ArrayList)
-    public void getDiceFaces(ArrayList<String[]> results) {
+    public void getDiceFaces(String color, ArrayList<String[]> results) {
         for (int i = 0; i < results.size(); i++) {
-             diceFaces.add(results.get(i)[0]);
+            diceFaces.add("   " + color + ": " + (results.get(i)[0]));
         }
     }
 
