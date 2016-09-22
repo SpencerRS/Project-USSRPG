@@ -1,4 +1,4 @@
-package com.spizzyrichlife.ussrpg_v01.Activities;
+package com.spizzyrichlife.ussrpg_v01;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -74,7 +74,7 @@ public class DiceRoller {
     //Roll a dice of sizeX
     public int rollDx(int x){
         Random random = new Random();
-        int randomNum = random.nextInt(x - 1) + 1;
+        int randomNum = random.nextInt(x) + 1;
         return randomNum;
     }
     //Roll num of blue dice, receive results as Array List of String[]s. List length = num
@@ -101,7 +101,7 @@ public class DiceRoller {
     public ArrayList<String[]> rollGreen(int num){
         ArrayList<String[]>greenResults = new ArrayList<>();
         for (int i = 0; i < num ; i++) {
-            int roll = rollDx(6);
+            int roll = rollDx(8);
             if (roll == 1){
                 greenResults.add(green1);
             }else if (roll == 2){
@@ -125,7 +125,7 @@ public class DiceRoller {
         public ArrayList<String[]> rollYellow(int num){
         ArrayList<String[]> yellowResults = new ArrayList<>();
         for (int i = 0; i < num ; i++) {
-            int roll = rollDx(6);
+            int roll = rollDx(12);
             if (roll == 1){
                 yellowResults.add(yellow1);
             }else if (roll == 2){
@@ -177,7 +177,7 @@ public class DiceRoller {
     public ArrayList<String[]> rollPurple(int num){
         ArrayList<String[]>purpleResults = new ArrayList<>();
         for (int i = 0; i < num ; i++) {
-            int roll = rollDx(6);
+            int roll = rollDx(8);
             if (roll == 1){
                 purpleResults.add(purple1);
             }else if (roll == 2){
@@ -201,7 +201,7 @@ public class DiceRoller {
     public ArrayList<String[]> rollRed(int num){
         ArrayList<String[]> redResults = new ArrayList<>();
         for (int i = 0; i < num ; i++) {
-            int roll = rollDx(6);
+            int roll = rollDx(12);
             if (roll == 1){
                 redResults.add(red1);
             }else if (roll == 2){

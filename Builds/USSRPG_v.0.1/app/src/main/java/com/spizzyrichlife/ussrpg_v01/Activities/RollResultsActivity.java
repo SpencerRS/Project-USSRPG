@@ -3,12 +3,21 @@ package com.spizzyrichlife.ussrpg_v01.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
+import com.spizzyrichlife.ussrpg_v01.DiceRoller;
 import com.spizzyrichlife.ussrpg_v01.R;
 
 import java.util.ArrayList;
 
 public class RollResultsActivity extends AppCompatActivity {
+
+    TextView successBrand;
+    TextView successTV;
+    TextView advantageBrand;
+    TextView advantageTV;
+
+    //Set up space to track result totals.
     int success = 0;
     int advantage = 0;
     ArrayList<String> diceFaces = new ArrayList<>();
@@ -35,6 +44,11 @@ public class RollResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roll_results);
+        successBrand = (TextView) findViewById(R.id.successBrand);
+        successTV = (TextView) findViewById(R.id.successesTV);
+        advantageBrand = (TextView) findViewById(R.id.advantageBrand);
+        advantageTV = (TextView) findViewById(R.id.advantagesTV);
+
 
         //Get intent and use it to perform dice rolls
         Intent intent = getIntent();
@@ -86,6 +100,9 @@ public class RollResultsActivity extends AppCompatActivity {
         getAdvantages(blackResults);
         getAdvantages(purpleResults);
         getAdvantages(redResults);
+
+        successTV.setText(Integer.toString(success));
+        advantageTV.setText(Integer.toString(advantage));
 
     }
 
